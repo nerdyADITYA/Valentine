@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Pastel Luxury Palette */
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-cursive: 'Dancing Script', cursive;
+
+  /* Soft Blush Pink Base */
+  --background: 340 100% 97%;
+  --foreground: 335 40% 25%;
+
+  /* Elegant Lavender/Pink Primary */
+  --primary: 330 60% 70%;
+  --primary-foreground: 340 100% 98%;
+
+  /* Soft Gold/Cream Secondary */
+  --secondary: 40 60% 92%;
+  --secondary-foreground: 30 40% 25%;
+
+  /* Glassmorphism Accents */
+  --muted: 330 30% 94%;
+  --muted-foreground: 335 20% 50%;
+  
+  --accent: 330 80% 85%;
+  --accent-foreground: 335 60% 20%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 330 30% 90%;
+  --input: 330 30% 90%;
+  --ring: 330 60% 70%;
+
+  --radius: 1rem;
+}
+
+.dark {
+  /* Dark Mode Luxury (Deep Plum/Gold) */
+  --background: 335 40% 10%;
+  --foreground: 340 20% 95%;
+
+  --primary: 330 50% 60%;
+  --primary-foreground: 340 20% 95%;
+
+  --secondary: 335 30% 15%;
+  --secondary-foreground: 340 20% 95%;
+
+  --muted: 335 30% 20%;
+  --muted-foreground: 335 20% 65%;
+
+  --accent: 330 50% 25%;
+  --accent-foreground: 340 20% 95%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 335 30% 20%;
+  --input: 335 30% 20%;
+  --ring: 330 50% 60%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: var(--font-sans);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.4) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(230, 230, 250, 0.5) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-cursive {
+    font-family: var(--font-cursive);
+  }
+
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-xl border border-white/50 shadow-xl shadow-pink-500/5 dark:bg-black/40 dark:border-white/10;
+  }
+  
+  .glass-button {
+    @apply bg-white/30 backdrop-blur-md border border-white/40 shadow-lg hover:bg-white/50 transition-all duration-300 active:scale-95;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-purple-600 dark:from-pink-400 dark:to-purple-400;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+}
